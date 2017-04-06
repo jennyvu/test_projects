@@ -26,6 +26,28 @@ public class Solution {
 		}		
 		return median;
 	}
+	
+	public static Node insert(Node head, int data){
+		Node temp = new Node(data);
+		if(head == null){
+			head = temp;
+		}else{
+			Node cur = head;
+			while(cur.next != null){
+				cur = cur.next;
+			}
+			cur.next = temp;
+		}
+		return head;
+	}
+	
+	public static void display(Node head) {
+        Node start = head;
+        while(start != null) {
+            System.out.print(start.data + " ");
+            start = start.next;
+        }
+    }
 
     public static void main(String[] args) { 
     	/*
@@ -94,6 +116,7 @@ public class Solution {
         book.display();
         */
     	//find maximunDifferent
+    	/*
     	Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] a = new int[n];
@@ -105,5 +128,18 @@ public class Solution {
     	difference.computeDifference();
 
         System.out.print(difference.maximumDifference);
+        */
+    	
+    	//LinkedList
+        Scanner sc = new Scanner(System.in);
+        Node head = null;
+        int N = sc.nextInt();
+
+        while(N-- > 0) {
+            int ele = sc.nextInt();
+            head = insert(head,ele);
+        }
+        display(head);
+        sc.close();
     }
 }
