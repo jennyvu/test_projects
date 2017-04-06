@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<header>
+<script>
+function myFunction() {
+    document.getElementById("test1").innerHTML = "This make more sense.";
+}
+</script>
+</header>
+<body>
+
+<h1>My First JavaScript</h1>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+<p id="text">2.JavaScript can change the style of an HTML element.</p>
+<button type="button" 
+onclick="document.getElementById('text').style.color='red'">click here to text color</button>
+<button type="button" 
+onclick="document.getElementById('text').style.display='none'">click to hide text</button>
+<p>3. JavaScript can show hidden HTML elements.</p>
+
+<p id="hidden" style="display:none">Hello JavaScript!</p>
+
+<button type="button" onclick="document.getElementById('hidden').style.display='block'">Click Me!</button>
+<p id="display"></p>
+<script>
+document.getElementById('display').innerHTML='Show my test here';
+function myFunction() {
+    document.getElementById("test2").innerHTML = "This javascript function came from body";
+}
+</script>
+<p>4. Java script function in header</p>
+<p id="test1">My Paragraph blah blah blah.</p>
+<button type="button" onclick="myFunction()">Click to change above paragraph</button>
+<p>5. Java script function in body</p>
+<p id="test2">My Paragraph blah blah blah.</p>
+<button type="button" onclick="myFunction()">Click to change above paragraph</button>
+<p>6. External js script</p>
+<p id="test3">My Paragraph blah blah blah.</p>
+<button id="button_6" type="button" onclick="myFunction()">Click to change above paragraph</button>
+</body>
+<script src="myScript.js"></script>
+<p>7. Do math and output</p>
+<p id="test4"></p>
+<script>
+document.getElementById("test4").innerHTML = 5 + 6;
+</script>
+<p>8. Write output (using document.write())</p>
+<script>
+document.write(5 + 6);
+</script>
+<p>9. Write output. (The document.write() method should only be used for testing.)</p>
+<button onclick="document.write(5 + 6)">Try it</button>
+<p>10. Window Alert</p>
+<script>
+//window.alert(5 + 6);
+</script>
+<p>11. Console Log</p>
+<script>
+console.log(5 + 6);
+</script>
+<p>12. javascript syntax</p>
+<p>The variables x, y, and z are assigned the values 5, 6, and 11.</p>
+<p>Then the value of z is displayed in the paragraph below:</p>
+<p id="test5"></p>
+<p>An expression is a combination of values, variables, and operators, which computes to a value.</p>
+<p id="test6"></p>
+<script>
+var x, y, z;
+x = 5;
+y = 6;
+z = x + y;
+var s = x + " + " + y + " = " + z;
+document.getElementById("test5").innerHTML=s;
+document.getElementById("test6").innerHTML=x*y;
+</script>
+<p>13. javascript data type</p>
+<p id="test7"></p>
+<p id="test8"></p>
+<script>
+var cars = ["Lexus", "Honda", "Toyota", "BMW"]; // array
+var name = "John"; // String
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}; // object
+document.getElementById("test7").innerHTML = cars[0];
+document.getElementById("test8").innerHTML = person.firstName +" "+person.lastName;
+</script>
+<p>14. javascript function</p>
+<p id="test9"></p>
+<p id="test10"></p>
+<p>15. javascript function definition</p>
+<p id="test11"></p>
+<p>16. javascript learn object</p>
+<p id="test12"></p>
+<script>
+function myFunction(a, b){
+	return a*b;
+}
+document.getElementById("test9").innerHTML = myFunction(4, 5);
+var fahrenheit = 70;
+function toCelsius(fahrenheit){
+	return (5/9) * (fahrenheit-32);
+}
+document.getElementById("test10").innerHTML = 
+fahrenheit + " F = "+ toCelsius(fahrenheit) + " C";
+document.getElementById("test11").innerHTML = toCelsius;
+var person = {
+    firstName: "John",
+    lastName : "Doe",
+    id       : 5566,
+    fullName : function() {
+       return this.firstName + " " + this.lastName;
+    }
+};
+document.getElementById("test12").innerHTML = person.fullName();
+</script>
+<p>17. Events </p>
+<button onclick="this.innerHTML = Date()">The time is?</button>
+</html>
