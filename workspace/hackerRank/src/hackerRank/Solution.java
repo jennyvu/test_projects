@@ -1,5 +1,6 @@
 package hackerRank;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -48,6 +49,37 @@ public class Solution {
             start = start.next;
         }
     }
+	
+	public static void bubbleSortAsc(int[] a){
+		int numberOfSwaps = 0;
+		for(int i=0; i<a.length; i++){
+			int swaps = 0;
+			for(int j=0; j<a.length - 1; j++){
+				if(a[j] > a[j + 1]){
+					int temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
+					swaps++;
+				}
+			}
+			if(swaps == 0){
+				break;			
+			}
+			numberOfSwaps += swaps;
+		}
+		System.out.println("Array is sorted in "+ numberOfSwaps +" swaps.");
+		System.out.println("First Element: "+ a[0]);
+		System.out.println("Last Element: "+ a[a.length - 1]);
+	}
+	
+	public static void stringToInteger(String s){
+		try{
+			int integer = Integer.parseInt(s);
+			System.out.println(integer);
+		} catch (NumberFormatException  e){
+			System.out.println("Bad String.");
+		}
+	}
 
     public static void main(String[] args) { 
     	/*
@@ -90,7 +122,7 @@ public class Solution {
         System.out.println(factorial(n));
         */
     	
-    	// Array
+    	// Array find median
     	/*
     	List<Integer> list = new ArrayList<Integer>();
     	Scanner in = new Scanner(System.in);
@@ -131,6 +163,7 @@ public class Solution {
         */
     	
     	//LinkedList
+    	/*
         Scanner sc = new Scanner(System.in);
         Node head = null;
         int N = sc.nextInt();
@@ -141,5 +174,59 @@ public class Solution {
         }
         display(head);
         sc.close();
+        */
+    	
+    	//Bubble sort
+    	/*
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int a[] = new int[n];
+        for(int a_i=0; a_i < n; a_i++){
+            a[a_i] = in.nextInt();
+        }
+        bubbleSortAsc(a);
+        in.close(); 
+        */
+    	
+    	// String to integer handling exception
+    	/*
+    	Scanner in = new Scanner(System.in);
+        String S = in.next();
+        stringToInteger(S);
+        in.close();
+        */
+    	
+    	// sort array using comparator
+    	/*
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+
+        Player[] player = new Player[n];
+        Checker checker = new Checker();
+        
+        for(int i = 0; i < n; i++){
+            player[i] = new Player(scan.next(), scan.nextInt());
+        }
+        scan.close();
+     
+        Arrays.sort(player, checker);
+        for(int i = 0; i < player.length; i++){
+            System.out.printf("%s %s\n", player[i].name, player[i].score);
+        }
+        */
+    	
+    	// Merge sort
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            int arr[] = new int[n];
+            for(int arr_i=0; arr_i < n; arr_i++){
+                arr[arr_i] = in.nextInt();
+            }
+            MergeSort msort = new MergeSort();
+            System.out.println(msort.mergeSort(arr));
+        }
+        in.close();
     }
 }
