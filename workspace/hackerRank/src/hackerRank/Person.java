@@ -1,9 +1,12 @@
 package hackerRank;
 
+import static hackerRank.HairColors.*;
+
 class Person {
 	protected String firstName;
 	protected String lastName;
 	protected int idNumber;
+	HairColors haircolor = BLOND;
 	
 	// Constructor
 	Person(String firstName, String lastName, int identification){

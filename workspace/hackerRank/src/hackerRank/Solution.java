@@ -125,6 +125,7 @@ public class Solution {
     	// Array find median
     	/*
     	List<Integer> list = new ArrayList<Integer>();
+    	//consider using LinkedList
     	Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         for(int a_i=0; a_i < n; a_i++){
@@ -216,6 +217,7 @@ public class Solution {
         */
     	
     	// Merge sort
+    	/*
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
         for(int a0 = 0; a0 < t; a0++){
@@ -228,5 +230,36 @@ public class Solution {
             System.out.println(msort.mergeSort(arr));
         }
         in.close();
+        */
+    	
+    	// More exception
+    	/*
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        while (t-- > 0) {
+        
+            int n = in.nextInt();
+            int p = in.nextInt();
+            Calculator myCalculator = new Calculator();
+            try {
+                int ans = myCalculator.power(n, p);
+                System.out.println(ans);
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        in.close();
+        */
+    	
+    	//using interface AdvancedArithmetic
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        scan.close();
+        
+      	AdvancedArithmetic myCalculator = new Calculator(); 
+        int sum = myCalculator.divisorSum(n);
+        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName() );
+        System.out.println(sum);
     }
 }
