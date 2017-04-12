@@ -1,35 +1,35 @@
 package LinkedList;
 
-public class Node {
+public class Node<D> {
 	// properties
-	Node next;
-	int data;
+	Node<D> next;
+	D data;
 	
 	// constructors
-	public Node(int newData){
+	public Node(D newData){
 		data = newData;
 		next = null;
 	}
 	
-	public Node(int newData, Node link){
+	public Node(D newData, Node<D> link){
 		data = newData;
 		next = link;
 	}
 
 	// getters and setters
-	public Node getNext(){
+	public Node<D> getNext(){
 		return next;
 	}
 	
-	public int getData(){
+	public D getData(){
 		return data;
 	}
 	
-	public void setNext(Node link){
+	public void setNext(Node<D> link){
 		next = link;
 	}
 	
-	public void setData(int newData){
+	public void setData(D newData){
 		data = newData;
 	}
 }

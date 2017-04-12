@@ -2,9 +2,9 @@ package LinkedList;
 
 import java.util.LinkedList;
 
-public class MyLinkedList {
+public class MyLinkedList<D> {
 	// properties
-	Node head;
+	Node<D> head;
 	int count;
 	
 	// constructors
@@ -13,20 +13,20 @@ public class MyLinkedList {
 		count = 0;
 	}
 	
-	public MyLinkedList(Node node){
+	public MyLinkedList(Node<D> node){
 		head = node;
 		count = 1;
 	}
 	
 	// method
-	public void add(int newData){
-		Node temp = new Node(newData);
-		Node current = head;
+	public void add(D newData){
+		Node<D> temp = new Node<D>(newData);
+		Node<D> current = head;
 		if(head == null){
-			current.data = newData;
-			current.next = null;
-			head = current;
-			count = 1;
+			//head.data = newData;
+			//head.next = null;
+			head = temp;
+			count++;
 		}else{
 			while(current.getNext() != null){
 				current.getNext();
@@ -36,10 +36,10 @@ public class MyLinkedList {
 		}
 	}
 	
-	public int get(int index){
-		Node current = head;
+	public D get(int index){
+		Node<D> current = head;
 		if(index <= 0 || head == null){
-			return -1;
+			return null;
 		}
 		for(int i = 1; i<index; i++){
 			current = current.getNext();
@@ -69,7 +69,7 @@ public class MyLinkedList {
 			count = 0;
 		}
 		else{
-			Node current = head;
+			Node<D> current = head;
 			while(current.getNext().getNext() != null){
 				current = current.getNext();
 			}
@@ -78,14 +78,27 @@ public class MyLinkedList {
 		}	
 	}
 	
-	Node Reverse(Node head){
+	Node<D> Reverse(Node<D> head){
 		if(head == null || head.next == null){
 			return head;
 		}
-		Node newHead = Reverse(head.next);
+		Node<D> newHead = Reverse(head.next);
 		head.next.next = head;
 		head.next = null;
 		return newHead;
+	}
+	
+	public String toString(){
+		String str = "[";
+		while(head != null){
+			str += head.getData();
+			if(head.getNext() != null){
+				str += " ";
+			}
+			head = head.getNext();
+		}
+		str += "]";
+		return str;
 	}
 
 	public static void main(String[] args) {
@@ -95,6 +108,10 @@ public class MyLinkedList {
 		System.out.println(linkedlist);
 		linkedlist.add("Steve");
 		System.out.println(linkedlist);
+		MyLinkedList<String> mylist = new MyLinkedList<String>();
+		mylist.add("Hi");
+		mylist.add("There!");
+		System.out.println(mylist);
 	}
 
 }

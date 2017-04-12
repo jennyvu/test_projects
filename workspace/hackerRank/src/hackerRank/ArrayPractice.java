@@ -4,22 +4,19 @@ import java.util.Arrays;
 
 public class ArrayPractice {
 	
-	public static void printArray(int[] array){
+	public static <E> void printArray(E[] array){
 		System.out.print("[");
-		for(int i=0; i<array.length; i++){
-			System.out.print(array[i]);
-			if(i < array.length - 1){
-				System.out.print(", ");
-			}
+		for(E element: array){
+			System.out.print(element + " ");
 		}
-		System.out.print("]");
+		System.out.println("]");
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//int[] intArray1 = new int[5];
-		int[] intArray2 = new int[4];
-		int[] intArray3 = {1, 3, 5, 7, 9};
+		Integer[] intArray2 = new Integer[4];
+		Integer[] intArray3 = {1, 3, 5, 7, 9};
 		String[] strArray = new String[10];
 		String[] shoppingList = {"onion", "cilantro", "bananas", "apples"};
 		
@@ -31,6 +28,7 @@ public class ArrayPractice {
 		
 		// custom print
 		printArray(intArray3);
+		printArray(shoppingList);
 		
 		//retrieve object
 		System.out.println(intArray3[4]);
