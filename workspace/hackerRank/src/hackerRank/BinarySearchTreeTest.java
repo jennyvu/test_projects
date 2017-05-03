@@ -8,10 +8,6 @@ public class BinarySearchTreeTest {
 		Node right;
 	}
 
-	//boolean checkBST(Node root) {
-    //    return isBST(root, 1, 10000);
-    //}
-
 	boolean checkBST(Node root) {
         return isBST(root, 0, 10000);
     }
@@ -25,6 +21,21 @@ public class BinarySearchTreeTest {
         }
         return isBST(node.left, min, node.data - 1) && isBST(node.right, node.data + 1, max);
     }
+    
+	public static int getHeight(Node root){
+		int leftH = 0, rightH = 0;
+		if (root == null) {
+			return -1;
+		} else {
+			if (root.left != null) {
+				leftH = 1 + getHeight(root.left);
+			} 
+			if (root.right != null) {
+				rightH = 1 + getHeight(root.right);
+			}
+			return Math.max(leftH, rightH); 
+		}      
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

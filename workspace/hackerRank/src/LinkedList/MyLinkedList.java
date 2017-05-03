@@ -88,6 +88,21 @@ public class MyLinkedList<D> {
 		return newHead;
 	}
 	
+	Node<D> RemoveDuplicate(Node<D> head){
+		if(head == null || head.next == null){
+			return head;
+		}
+		Node<D> newHead = head;
+		while(head.next != null) {
+			if (head.data != head.next.data) {
+				head = head.next;
+			} else {
+				head.next = head.next.next;
+			}		
+		}
+		return newHead;
+	}
+	
 	public String toString(){
 		String str = "[";
 		while(head != null){
@@ -103,6 +118,7 @@ public class MyLinkedList<D> {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		LinkedList<String> linkedlist = new LinkedList<String>();
 		linkedlist.add("Alex");
 		System.out.println(linkedlist);
@@ -113,5 +129,4 @@ public class MyLinkedList<D> {
 		mylist.add("There!");
 		System.out.println(mylist);
 	}
-
 }
